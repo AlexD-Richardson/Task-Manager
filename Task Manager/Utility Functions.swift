@@ -52,3 +52,11 @@ func getPriority() -> String {
     
     return input!
 }
+
+func validateInput( _ input: String) -> Bool {
+    let menuOptions = Array(1...9)
+    
+    guard let number = Int(input) else { return false }
+    
+    return menuOptions.contains(number)
+}

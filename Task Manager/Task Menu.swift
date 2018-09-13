@@ -18,11 +18,11 @@ class TaskMenu {
         
         repeat {
             
-            var input = getInput()
+            var input = getString()
             
             while validateInput(input) == false {
                 print("Invalid Input")
-                input = getInput()
+                input = getString()
             }
             
             handleInput(input)
@@ -51,30 +51,6 @@ class TaskMenu {
         
         print("Please enter a number corresponding to the option you want:")
         
-    }
-    
-    func getInput() -> String {
-        var input: String? = nil
-        
-        repeat {
-            let line = readLine()!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            if line != "" {
-                input = line
-            } else {
-                print("Invalid input!")
-            }
-        } while input == nil
-        
-        return input!
-    }
-    
-    func validateInput( _ input: String) -> Bool {
-        let menuOptions = Array(1...9)
-        
-        guard let number = Int(input) else { return false }
-        
-        return menuOptions.contains(number)
     }
     
     
