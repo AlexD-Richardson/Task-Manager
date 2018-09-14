@@ -12,6 +12,7 @@ class TaskMenu {
     
     var shouldQuit = false
     
+    
     func go() {
         
         help()
@@ -57,19 +58,19 @@ class TaskMenu {
     func handleInput(_ input: String) {
         switch input {
         case "1":
-            //func goes here
+            TaskManager.sharedInstance.addTask()
             print("\n")
             help()
         case "2":
-            //func goes here
+            TaskManager.sharedInstance.removeTask()
             print("\n")
             help()
         case "3":
-             //func goes here
+             TaskManager.sharedInstance.listAllTasks()
             print("\n")
             help()
         case "4":
-             //func goes here
+             TaskManager.sharedInstance.ListUncompletedTasks()
             print("\n")
             help()
         case "5":

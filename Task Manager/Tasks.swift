@@ -16,24 +16,23 @@ class Task {
     
     var completionStatus: Bool
     
-    var completeByDate: Date
+    var completeByDate: Date?
     
     var priority: PriorityChoice
     
-    enum PriorityChoice {
+    enum PriorityChoice: Int {
         
-        case High
+        case High = 1
         case Average
         case Low
         
         
     }
     
-    init(title: String, description: String, completeByDate: Date, priority: PriorityChoice) {
+    init(title: String, description: String, priority: PriorityChoice) {
         
     self.title = title
     self.description = description
-    self.completeByDate = completeByDate
     self.priority = priority
     self.completionStatus = false
     
