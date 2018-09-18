@@ -8,6 +8,8 @@
 
 import Foundation
 
+let editATask = subMenu()
+
 class TaskMenu {
     
     var shouldQuit = false
@@ -22,7 +24,9 @@ class TaskMenu {
             var input = getString()
             
             while validateInput(input) == false {
+                
                 print("Invalid Input")
+                
                 input = getString()
             }
             
@@ -45,8 +49,9 @@ class TaskMenu {
         5 List Completed Tasks
         6 Mark Incomplete Task As Complete
         7 Mark Completed Task As Incomplete
-        8 Help
-        9 Quit
+        8 Edit a task
+        9 Help
+        10 Quit
         
         """)
         
@@ -74,20 +79,24 @@ class TaskMenu {
             print("\n")
             help()
         case "5":
-             //func goes here
+             TaskManager.sharedInstance.ListCompletedTasks()
             print("\n")
             help()
         case "6":
-             //func goes here
+             TaskManager.sharedInstance.MarkTaskAsComplete()
             print("\n")
             help()
         case "7":
-            //func goes here
+            TaskManager.sharedInstance.MarkTaskAsIncomplete()
             print("\n")
             help()
         case "8":
+            editATask.go2()
+            print("\n")
             help()
         case "9":
+            help()
+        case "10":
             quit()
         default:  //if input is anything else
             break
@@ -95,7 +104,12 @@ class TaskMenu {
     }
     
     func quit() {
+        
         shouldQuit = true
         print("Exiting Task Manager...")
+        sleep(2)
+        
     }
+    
+   
 }

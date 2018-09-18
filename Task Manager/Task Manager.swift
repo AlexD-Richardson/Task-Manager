@@ -23,12 +23,18 @@ class TaskManager {
          Task(title: "Buy batteries", description: "Your remote is dead yo!", priority: .Average),
          Task(title: "Beat Video Games", description: "You buy all these games but never beat them!", priority: .High)]
     
+    
+    
+    
+
     func addTask() {
+        
         print("\n")
+        
         
         print("If you want to add a task to the Task Manager, you must enter an administrator password.")
         
-        let password = checkPassword()
+        let password = checkPassword(pass: "Thanos did nothing wrong")
         
         if password == false {
             
@@ -38,42 +44,42 @@ class TaskManager {
             
             return
             
-        } else {
+        } 
+        
+        print("\n")
+        
+        print("Welcome Admin! Please enter the title of the task you want to add:")
+        
+        let taskName = getString()
+        
+        print("\n")
+        
+        print("Please enter a description for your task")
+        
+        let taskDescription = getString()
+        
+        print("\n")
+        
+        print("Please give this task a priority level of High, Average, or Low")
+        
+        var taskPriority: Task.PriorityChoice!
+        
+        let priorityInput = getPriority()
+        
+        if priorityInput == "High" {
             
-            print("\n")
+            taskPriority = .High
             
-            print("Welcome Admin! Please enter the title of the task you want to add:")
+        } else if priorityInput == "Average" {
             
-            let taskName = getString()
+            taskPriority = .Average
             
-            print("\n")
-            
-            print("Please enter a description for your task")
-            
-            let taskDescription = getString()
-            
-            print("\n")
-            
-            print("Please give this task a priority level of High, Average, or Low")
-            
-            var taskPriority: Task.PriorityChoice!
-            
-            let priorityInput = getPriority()
-            
-            if priorityInput == "High" {
-                
-                taskPriority = .High
-                
-            } else if priorityInput == "Average" {
-                
-                taskPriority = .Average
-                
-            } else if priorityInput == "Low" {
-                taskPriority = .Low
-            }
-            
-            taskArray.append(Task(title: taskName, description: taskDescription, priority: taskPriority))
+        } else if priorityInput == "Low" {
+            taskPriority = .Low
         }
+        
+        taskArray.append(Task(title: taskName, description: taskDescription, priority: taskPriority))
+        
         
         print("\n")
     }
@@ -85,7 +91,7 @@ class TaskManager {
         
         print("If you want to remove a game from the Video Game Library, you must enter an administrator password.")
         
-        let password = checkPassword()
+        let password = checkPassword(pass: "Thanos did nothing wrong")
         
         if password == false {
             
@@ -102,7 +108,9 @@ class TaskManager {
             
             print("\n")
             
-            for (i, index) in taskArray.enumerated() {
+            let sortedArray = sortArray(tasks: taskArray)
+            
+            for (i, index) in sortedArray.enumerated() {
                 
                 print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
                 
@@ -171,7 +179,9 @@ class TaskManager {
         
         print("\n")
         
-        for task in taskArray {
+        let sortedArray = sortArray(tasks: taskArray)
+        
+        for task in sortedArray {
             
             print("\(task.title) | Description: \(task.description) | Priority: \(task.priority)")
         }
@@ -184,19 +194,20 @@ class TaskManager {
         
         print("\n")
         
-        var funcCont = true
+        var funcCont = 0
         
         for task in taskArray {
             
-            if task.completionStatus {
+            if !task.completionStatus {
                 
-                funcCont = false
+                funcCont += 1
+                
             }
         }
         
-        if !funcCont {
+        if funcCont == 0 {
             
-            return print("There are no tasks unavailable at the moment. Sorry!")
+            return print("There are no tasks uncompleted tasks at the moment. Sorry!")
         }
         
         
@@ -204,9 +215,12 @@ class TaskManager {
         
         print("\n")
         
-        for task in taskArray {
+        let sortedArray = sortArray(tasks: taskArray)
+        
+        for task in sortedArray {
             
             if task.completionStatus == false {
+                
                 print("\(task.title) | Priority: \(task.priority)")
             }
         }
@@ -217,14 +231,163 @@ class TaskManager {
     
     func ListCompletedTasks() {
         
+        print("\n")
+        
+        var funcCont = 0
+        
+        let sortedArray = sortArray(tasks: taskArray)
+        
+        for task in sortedArray {
+            
+            if task.completionStatus {
+                
+                funcCont += 1
+                
+            }
+        }
+        
+        if funcCont == 0 {
+            
+            return print("There are no tasks completed at the moment. Sorry!")
+        }
+        
+        
+        print("Here are the tasks we have available:")
+        
+        print("\n")
+        
+        for task in sortedArray {
+            
+            if task.completionStatus == true {
+                
+                print("\(task.title) | Priority: \(task.priority)")
+            }
+        }
+        
+        print("\n")
+        
+    }
+    //END OF LIST COMPLETED TASKS
+    
+    func MarkTaskAsComplete() {
+        
+        var funcCont = 0
+        
+        let sortedArray = sortArray(tasks: taskArray)
+        
+        for task in sortedArray {
+            
+            if !task.completionStatus {
+                
+                funcCont += 1
+                
+            }
+        }
+        
+        if funcCont == 0 {
+            
+            return print("There are no tasks uncompleted tasks at the moment. Sorry!")
+        }
+        
+        print("Please enter in a number corresponding to the task you want to mark as complete:")
+        
+        print("\n")
+        
+        
+        for (i, index) in sortedArray.enumerated() {
+            
+            if index.completionStatus == false {
+                
+                print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
+                
+            }
+        }
+        
+        print("\n")
+        
+        var indexInput = getArrayInput()
+        
+        if taskArray[indexInput - 1].completionStatus == true {
+            
+            repeat {
+                
+                indexInput = getArrayInput() - 1
+                
+            } while taskArray[indexInput - 1].completionStatus == true
+            
+        }
+        
+        taskArray[indexInput - 1].completionStatus = true
+        
+        print("\n")
+        
+        print("That task is now completed! Nice job.")
         
         
     }
+    //END OF MARK TASK AS COMPLETE
     
-    
-    
+    func MarkTaskAsIncomplete() {
+        
+        var funcCont = 0
+        
+        let sortedArray = sortArray(tasks: taskArray)
+        
+        for task in sortedArray {
+            
+            if task.completionStatus {
+                
+                funcCont += 1
+                
+            }
+        }
+        
+        if funcCont == 0 {
+            
+            return print("There are no tasks completed tasks at the moment. Sorry!")
+        }
+        
+        print("Please enter in a number corresponding to the task you want to mark as incomplete:")
+        
+        print("\n")
+        
+        
+        for (i, index) in sortedArray.enumerated() {
+            
+            if index.completionStatus == true {
+                
+                print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
+                
+            }
+        }
+        
+        print("\n")
+        
+        var indexInput = getArrayInput()
+        
+        if taskArray[indexInput - 1].completionStatus == false {
+            
+            repeat {
+                
+                indexInput = getArrayInput()
+                
+            } while taskArray[indexInput - 1].completionStatus == false
+            
+        }
+        
+        
+        taskArray[indexInput - 1].completionStatus = false
+        
+        print("\n")
+        
+        print("That task is now marked as incomplete!")
+        
+    }
     
 }
+
+
+
 
 
 

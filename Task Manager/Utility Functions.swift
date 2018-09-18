@@ -55,7 +55,17 @@ func getPriority() -> String {
 }
 
 func validateInput( _ input: String) -> Bool {
-    let menuOptions = Array(1...9)
+    
+    let menuOptions = Array(1...10)
+    
+    guard let number = Int(input) else { return false }
+    
+    return menuOptions.contains(number)
+}
+
+func validateInput2( _ input: String) -> Bool {
+    
+    let menuOptions = Array(1...5)
     
     guard let number = Int(input) else { return false }
     
@@ -96,7 +106,7 @@ func getArrayInput() -> Int {
     
 }
 
-func checkPassword() -> Bool {
+func checkPassword(pass: String) -> Bool {
     
     var permission = false
     
@@ -106,7 +116,7 @@ func checkPassword() -> Bool {
         
         let passwordAttempt = getString()
         
-        if passwordAttempt == "Thanos did nothing wrong" {
+        if passwordAttempt == pass {
             
             permission = true
             
@@ -120,7 +130,14 @@ func checkPassword() -> Bool {
             
             print("\n")
             
+            if passwordAttempts == 1 {
+                
+                print("You have 1 password attempt left.")
+                
+            } else {
+            
             print("You have \(passwordAttempts) password attempts left.")
+            }
             
             
         }
@@ -130,3 +147,14 @@ func checkPassword() -> Bool {
     return permission
     
 }
+
+
+func sortArray(tasks: [Task]) -> [Task] {
+    
+    return tasks.sorted(by: { (task1, task2) -> Bool in
+        
+        return task1.priority.rawValue < task2.priority.rawValue
+    })
+}
+
+

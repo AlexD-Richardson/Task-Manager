@@ -12,6 +12,8 @@
 		9EAD273C21496AB2009A560B /* Task Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD273B21496AB2009A560B /* Task Menu.swift */; };
 		9EAD273E21498CE3009A560B /* Task Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD273D21498CE3009A560B /* Task Manager.swift */; };
 		9EAD27402149966A009A560B /* Utility Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD273F2149966A009A560B /* Utility Functions.swift */; };
+		9EAD276A215023D6009A560B /* EditTask Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD2769215023D6009A560B /* EditTask Menu.swift */; };
+		9EAD276C21503A6E009A560B /* Edit Task Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD276B21503A6E009A560B /* Edit Task Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +35,8 @@
 		9EAD273B21496AB2009A560B /* Task Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task Menu.swift"; sourceTree = "<group>"; };
 		9EAD273D21498CE3009A560B /* Task Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task Manager.swift"; sourceTree = "<group>"; };
 		9EAD273F2149966A009A560B /* Utility Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utility Functions.swift"; sourceTree = "<group>"; };
+		9EAD2769215023D6009A560B /* EditTask Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditTask Menu.swift"; sourceTree = "<group>"; };
+		9EAD276B21503A6E009A560B /* Edit Task Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Edit Task Manager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				9EAD2739214966EB009A560B /* Tasks.swift */,
 				9EAD273F2149966A009A560B /* Utility Functions.swift */,
 				9EAD273B21496AB2009A560B /* Task Menu.swift */,
+				9EAD2769215023D6009A560B /* EditTask Menu.swift */,
+				9EAD276B21503A6E009A560B /* Edit Task Manager.swift */,
 			);
 			path = "Task Manager";
 			sourceTree = "<group>";
@@ -132,7 +138,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EAD273C21496AB2009A560B /* Task Menu.swift in Sources */,
+				9EAD276C21503A6E009A560B /* Edit Task Manager.swift in Sources */,
 				9EAD273A214966EB009A560B /* Tasks.swift in Sources */,
+				9EAD276A215023D6009A560B /* EditTask Menu.swift in Sources */,
 				9EAD2733214962BB009A560B /* main.swift in Sources */,
 				9EAD27402149966A009A560B /* Utility Functions.swift in Sources */,
 				9EAD273E21498CE3009A560B /* Task Manager.swift in Sources */,
