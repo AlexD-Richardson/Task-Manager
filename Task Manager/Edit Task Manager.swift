@@ -17,9 +17,9 @@ class editTaskManager {
         
         print("Which task would you like to rename?")
         
-        let sortedArray = sortArray(tasks: TaskManager.sharedInstance.taskArray)
+        TaskManager.sharedInstance.sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in TaskManager.sharedInstance.taskArray.enumerated() {
             
             print("\(i + 1) \(index.title) | Priority Level: \(index.priority)")
             
@@ -48,9 +48,9 @@ class editTaskManager {
         
         print("Which task's description would you like to rename?")
         
-        let sortedArray = sortArray(tasks: TaskManager.sharedInstance.taskArray)
+        TaskManager.sharedInstance.sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in TaskManager.sharedInstance.taskArray.enumerated() {
             
             print("\(i + 1) \(index.title) | Priority Level: \(index.priority)")
             
@@ -79,9 +79,9 @@ class editTaskManager {
         
         print("Which task's priority would you like to change?")
         
-        let sortedArray = sortArray(tasks: TaskManager.sharedInstance.taskArray)
+        TaskManager.sharedInstance.sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in TaskManager.sharedInstance.taskArray.enumerated() {
             
             print("\(i + 1) \(index.title) | Priority Level: \(index.priority)")
             
@@ -125,9 +125,9 @@ class editTaskManager {
         
         print("Which task would you like to give a new due date to?")
         
-        let sortedArray = sortArray(tasks: TaskManager.sharedInstance.taskArray)
+        TaskManager.sharedInstance.sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in TaskManager.sharedInstance.taskArray.enumerated() {
             
             print("\(i + 1) \(index.title) | Priority Level: \(index.priority)")
             

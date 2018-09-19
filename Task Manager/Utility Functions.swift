@@ -154,14 +154,6 @@ func checkPassword(pass: String) -> Bool {
 }
 
 
-func sortArray(tasks: [Task]) -> [Task] {
-    
-    return tasks.sorted(by: { (task1, task2) -> Bool in
-        
-        return task1.priority.rawValue < task2.priority.rawValue
-    })
-}
-
 func getNumber() -> Int {
     
     var num: Int? = nil

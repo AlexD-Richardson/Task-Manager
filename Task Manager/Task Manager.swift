@@ -32,6 +32,13 @@ class TaskManager {
               priority: .High)]
     
     
+    func sortArray() {
+        taskArray = taskArray.sorted(by: { (task1, task2) -> Bool in
+            return task1.priority.rawValue < task2.priority.rawValue
+        })
+    }
+    
+    
     func addTask() {
         
         print("\n")
@@ -164,9 +171,11 @@ class TaskManager {
             
             print("\n")
             
-            let sortedArray = sortArray(tasks: taskArray)
+             sortArray()
             
-            for (i, index) in sortedArray.enumerated() {
+            for (i, index) in taskArray.enumerated() {
+                
+               
                 
                 print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
                 
@@ -235,10 +244,11 @@ class TaskManager {
         
         print("\n")
         
-        let sortedArray = sortArray(tasks: taskArray)
-        
-        for task in sortedArray {
+        sortArray()
+
+        for task in taskArray {
             
+
             if task.dueDate == nil {
             
             print("\(task.title) | Description: \(task.description) | Priority: \(task.priority)")
@@ -280,9 +290,11 @@ class TaskManager {
         
         print("\n")
         
-        let sortedArray = sortArray(tasks: taskArray)
+        sortArray()
         
-        for task in sortedArray {
+        for task in taskArray {
+            
+            
             
             if task.completionStatus == false {
                 
@@ -308,10 +320,8 @@ class TaskManager {
         print("\n")
         
         var funcCont = 0
-        
-        let sortedArray = sortArray(tasks: taskArray)
-        
-        for task in sortedArray {
+
+        for task in taskArray {
             
             if task.completionStatus {
                 
@@ -330,8 +340,11 @@ class TaskManager {
         
         print("\n")
         
-        for task in sortedArray {
+        sortArray()
+
+        for task in taskArray {
             
+
             if task.completionStatus == true {
                 
                 if task.dueDate == nil {
@@ -356,9 +369,7 @@ class TaskManager {
         
         var funcCont = 0
         
-        let sortedArray = sortArray(tasks: taskArray)
-        
-        for task in sortedArray {
+        for task in taskArray {
             
             if !task.completionStatus {
                 
@@ -376,8 +387,11 @@ class TaskManager {
         
         print("\n")
         
+        sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in taskArray.enumerated() {
+            
+            
             
             if index.completionStatus == false {
                 
@@ -422,9 +436,11 @@ class TaskManager {
         
         var funcCont = 0
         
-        let sortedArray = sortArray(tasks: taskArray)
+        sortArray()
         
-        for task in sortedArray {
+        for task in taskArray {
+    
+            
             
             if task.completionStatus {
                 
@@ -442,8 +458,9 @@ class TaskManager {
         
         print("\n")
         
+        sortArray()
         
-        for (i, index) in sortedArray.enumerated() {
+        for (i, index) in taskArray.enumerated() {
             
             if index.completionStatus == true {
                 
