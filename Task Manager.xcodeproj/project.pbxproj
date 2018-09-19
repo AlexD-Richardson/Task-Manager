@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E0F13FA2152A14400280672 /* Easter Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0F13F92152A14400280672 /* Easter Egg.swift */; };
 		9EAD2733214962BB009A560B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD2732214962BB009A560B /* main.swift */; };
 		9EAD273A214966EB009A560B /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD2739214966EB009A560B /* Tasks.swift */; };
 		9EAD273C21496AB2009A560B /* Task Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD273B21496AB2009A560B /* Task Menu.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9E0F13F92152A14400280672 /* Easter Egg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Easter Egg.swift"; sourceTree = "<group>"; };
 		9EAD272F214962BB009A560B /* Task Manager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Task Manager"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EAD2732214962BB009A560B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9EAD2739214966EB009A560B /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				9EAD2732214962BB009A560B /* main.swift */,
 				9EAD273D21498CE3009A560B /* Task Manager.swift */,
+				9E0F13F92152A14400280672 /* Easter Egg.swift */,
 				9EAD2739214966EB009A560B /* Tasks.swift */,
 				9EAD273F2149966A009A560B /* Utility Functions.swift */,
 				9EAD273B21496AB2009A560B /* Task Menu.swift */,
@@ -112,6 +115,7 @@
 				TargetAttributes = {
 					9EAD272E214962BB009A560B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -139,6 +143,7 @@
 			files = (
 				9EAD273C21496AB2009A560B /* Task Menu.swift in Sources */,
 				9EAD276C21503A6E009A560B /* Edit Task Manager.swift in Sources */,
+				9E0F13FA2152A14400280672 /* Easter Egg.swift in Sources */,
 				9EAD273A214966EB009A560B /* Tasks.swift in Sources */,
 				9EAD276A215023D6009A560B /* EditTask Menu.swift in Sources */,
 				9EAD2733214962BB009A560B /* main.swift in Sources */,
@@ -268,7 +273,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -277,7 +282,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

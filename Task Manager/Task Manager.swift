@@ -19,14 +19,19 @@ class TaskManager {
     
     var taskArray: [Task] =
         
-        [Task(title: "Organize room", description: "Get ya room cleaned ya doof", priority: .Low),
-         Task(title: "Buy batteries", description: "Your remote is dead yo!", priority: .Average),
-         Task(title: "Beat Video Games", description: "You buy all these games but never beat them!", priority: .High)]
+        [Task(title: "Kill Thanos",
+              description: "Aim for the head",
+              priority: .High),
+         
+         Task(title: "Collect ashes of fallen Avengers",
+              description: "Check weather for high winds",
+              priority: .Average),
+         
+         Task(title: "Use Nebula to build ship out of her spare parts",
+              description: "Make sure to tell her she isn't a waste of parts",
+              priority: .High)]
     
     
-    
-    
-
     func addTask() {
         
         print("\n")
@@ -75,11 +80,62 @@ class TaskManager {
             taskPriority = .Average
             
         } else if priorityInput == "Low" {
+            
             taskPriority = .Low
         }
         
-        taskArray.append(Task(title: taskName, description: taskDescription, priority: taskPriority))
+        print("\n")
         
+        print("Would you like to give this task a due date? Please answer with a Yes or No.")
+        
+        var yesOrNo = getString()
+        
+        repeat {
+        
+        if yesOrNo == "Yes" {
+            
+            print("How many days does this task have to complete?")
+            
+            let currentCalender = Calendar.current
+            
+            let number = getNumber()
+            
+            let completeBy = currentCalender.date(byAdding: .day, value: number, to: Date())
+            
+            let dateFormatter = DateFormatter()
+            
+            dateFormatter.dateFormat = "MMMM d, yyyy"
+            
+            taskArray.append(Task(title: taskName, description: taskDescription, priority: taskPriority))
+            
+            taskArray[taskArray.count - 1].dueDate = dateFormatter.string(from: completeBy!)
+            
+            print("Your task now need to be completed by \(dateFormatter.string(from: completeBy!))")
+            
+            print("\n")
+            
+            print("Your task has now been added!")
+            
+            break
+            
+        } else if yesOrNo == "No" {
+            
+            print("\n")
+            
+            taskArray.append(Task(title: taskName, description: taskDescription, priority: taskPriority))
+            
+            print("Your task has now been added!")
+            
+            break
+            
+        } else {
+            
+            print("Please answer with a Yes or No")
+            yesOrNo = getString()
+            
+        }
+            
+        } while yesOrNo != "Yes" || yesOrNo != "No"
         
         print("\n")
     }
@@ -183,7 +239,16 @@ class TaskManager {
         
         for task in sortedArray {
             
+            if task.dueDate == nil {
+            
             print("\(task.title) | Description: \(task.description) | Priority: \(task.priority)")
+                
+                
+            } else if task.dueDate != nil {
+                
+                print("\(task.title) | Description: \(task.description) | Priority: \(task.priority) | Due Date: \(task.dueDate!)")
+                
+            }
         }
         
         print("\n")
@@ -221,7 +286,16 @@ class TaskManager {
             
             if task.completionStatus == false {
                 
-                print("\(task.title) | Priority: \(task.priority)")
+                if task.dueDate == nil {
+                    
+                    print("\(task.title) | Description: \(task.description) | Priority: \(task.priority)")
+                    
+                    
+                } else if task.dueDate != nil {
+                    
+                    print("\(task.title) | Description: \(task.description) | Priority: \(task.priority) | Due Date: \(task.dueDate!)")
+                    
+                }
             }
         }
         
@@ -252,7 +326,7 @@ class TaskManager {
         }
         
         
-        print("Here are the tasks we have available:")
+        print("Here are the tasks that are completed:")
         
         print("\n")
         
@@ -260,7 +334,16 @@ class TaskManager {
             
             if task.completionStatus == true {
                 
-                print("\(task.title) | Priority: \(task.priority)")
+                if task.dueDate == nil {
+                    
+                    print("\(task.title) | Description: \(task.description) | Priority: \(task.priority)")
+                    
+                    
+                } else if task.dueDate != nil {
+                    
+                    print("\(task.title) | Description: \(task.description) | Priority: \(task.priority) | Due Date: \(task.dueDate!)")
+                    
+                }
             }
         }
         
@@ -298,8 +381,16 @@ class TaskManager {
             
             if index.completionStatus == false {
                 
-                print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
-                
+                if index.dueDate == nil {
+                    
+                    print("\(i + 1) \(index.title) | Description: \(index.description) | Priority: \(index.priority)")
+                    
+                    
+                } else if index.dueDate != nil {
+                    
+                    print("\(i + 1) \(index.title) | Description: \(index.description) | Priority: \(index.priority) | Due Date: \(index.dueDate!)")
+                    
+                }
             }
         }
         
@@ -356,7 +447,16 @@ class TaskManager {
             
             if index.completionStatus == true {
                 
-                print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
+                if index.dueDate == nil {
+                    
+                    print("\(i + 1) \(index.title) | Description: \(index.description) | Priority: \(index.priority)")
+                    
+                    
+                } else if index.dueDate != nil {
+                    
+                    print("\(i + 1) \(index.title) | Description: \(index.description) | Priority: \(index.priority) | Due Date: \(index.dueDate!)")
+                    
+                }
                 
             }
         }
@@ -385,6 +485,7 @@ class TaskManager {
     }
     
 }
+//End of Mark Task as Incomplete
 
 
 

@@ -10,6 +10,8 @@ import Foundation
 
 let taskmenu = TaskMenu()
 
+let EditTaskManager = editTaskManager()
+
 class subMenu {
     
     var shouldQuit2 = false
@@ -76,19 +78,19 @@ class subMenu {
     func handleInput2(_ input: String) {
         switch input {
         case "1":
-            
+            EditTaskManager.renameTask()
             print("\n")
             help2()
         case "2":
-            
+            EditTaskManager.editDescription()
             print("\n")
             help2()
         case "3":
-            
+            EditTaskManager.changePriority()
             print("\n")
             help2()
         case "4":
-            
+            EditTaskManager.assignDueDate()
             print("\n")
             help2()
         case "5":

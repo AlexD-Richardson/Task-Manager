@@ -10,7 +10,23 @@ import Foundation
 
 let taskMenu = TaskMenu()
 
-print("Welcome to the Task Manager!")
-print("\n")
+print("To use the Task Manager, please enter in an administrator password:")
 
-taskMenu.go()
+let password = checkPassword(pass: "Will Ferrell")
+
+if password == true {
+    
+    print("\n")
+    
+    print("Welcome to the Task Manager!")
+    
+    print("\n")
+    
+    taskMenu.go()
+    
+} else {
+    
+    print("User access not permitted")
+    exit(0)
+    
+}

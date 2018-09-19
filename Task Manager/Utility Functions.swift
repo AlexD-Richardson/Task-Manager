@@ -116,7 +116,12 @@ func checkPassword(pass: String) -> Bool {
         
         let passwordAttempt = getString()
         
-        if passwordAttempt == pass {
+        if passwordAttempt == "Avengers Assemble" {
+            
+            easterEgg1()
+            break
+            
+        } else if passwordAttempt == pass {
             
             permission = true
             
@@ -155,6 +160,37 @@ func sortArray(tasks: [Task]) -> [Task] {
         
         return task1.priority.rawValue < task2.priority.rawValue
     })
+}
+
+func getNumber() -> Int {
+    
+    var num: Int? = nil
+    
+    repeat {
+        
+        let line = Int(readLine()!)
+        
+        guard let _ = line else {
+            
+            print("Invalid input! Please try again:")
+            
+            continue
+            
+        }
+        if line! >= 0 {
+            
+            num = line
+            
+        } else {
+            
+            print("Invalid input! Please try again:")
+            num = nil
+        }
+        
+    } while num == nil
+    
+    return num!
+    
 }
 
 

@@ -107,7 +107,7 @@ class TaskMenu {
         
         shouldQuit = true
         print("Exiting Task Manager...")
-        sleep(2)
+        
         
     }
     

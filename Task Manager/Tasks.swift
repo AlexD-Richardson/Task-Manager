@@ -12,13 +12,13 @@ class Task {
     
     
     
-    let title: String
+    var title: String
     
-    let description: String
+    var description: String
     
     var completionStatus: Bool
     
-    var completeByDate: Date?
+    var dueDate: String?
     
     var priority: PriorityChoice
     
