@@ -17,6 +17,8 @@ class TaskManager {
     }
     
     
+    
+    
     var taskArray: [Task] =
         
         [Task(title: "Kill Thanos",
@@ -29,11 +31,13 @@ class TaskManager {
          
          Task(title: "Use Nebula to build ship out of her spare parts",
               description: "Make sure to tell her she isn't a waste of parts",
-              priority: .High)]
+              priority: .Low)]
     
     
     func sortArray() {
+        
         taskArray = taskArray.sorted(by: { (task1, task2) -> Bool in
+            
             return task1.priority.rawValue < task2.priority.rawValue
         })
     }
@@ -138,6 +142,7 @@ class TaskManager {
         } else {
             
             print("Please answer with a Yes or No")
+            
             yesOrNo = getString()
             
         }
@@ -177,7 +182,7 @@ class TaskManager {
                 
                
                 
-                print("\(i + 1) \(index.title) Priority Level: \(index.priority)")
+                print("\(i + 1) \(index.title) | Priority Level: \(index.priority)")
                 
             }
             
@@ -219,7 +224,6 @@ class TaskManager {
                     
                     
                 } while YesOrNo != "Yes" || YesOrNo != "No"
-                
                 
                 
             } else {
@@ -284,7 +288,6 @@ class TaskManager {
             
             return print("There are no tasks uncompleted tasks at the moment. Sorry!")
         }
-        
         
         print("Here are the tasks we have available:")
         

@@ -33,7 +33,7 @@ class editTaskManager {
         
         let newTaskTitle = getString()
         
-        TaskManager.sharedInstance.taskArray[chosenTask].title = newTaskTitle
+        TaskManager.sharedInstance.taskArray[chosenTask - 1].title = newTaskTitle
         
         print("\n")
         
